@@ -1,0 +1,14 @@
+.settings-wrapper {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+
+  .location-input-wrapper {
+    flex: none;
+  }
+
+  .locations-list-item-text {
+    font-size: 0.9rem;
+  }
+}

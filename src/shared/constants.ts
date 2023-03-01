@@ -1,0 +1,20 @@
+export const ICONS_CODES: { [key: string]: string } = {
+  "01d": "mostly-sunny",
+  "02d": "partly-cloudy",
+  "03d": "mostly-cloudy",
+  "04d": "mostly-cloudy",
+  "09d": "heavy-rain",
+  "10d": "drizzle",
+  "11d": "thunderstorm",
+  "13d": "snow",
+  "50d": "fog",
+  "01n": "clear-night",
+  "02n": "partly-cloudy-night",
+  "03n": "mostly-cloudy-night",
+  "04n": "mostly-cloudy-night",
+  "09n": "heavy-rain",
+  "10n": "drizzle-night",
+  "11n": "thunderstorm",
+  "13n": "snow",
+  "50n": "fog"
+}
