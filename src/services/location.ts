@@ -1,4 +1,3 @@
-import axios from "axios";
 import { Location } from "@/shared/types";
 
 export const locationService = {
@@ -8,25 +7,13 @@ export const locationService = {
     return null;
   },
 
-  updateUsersLocations(locations: Array<Location>): void {
+  updateUserLocations(locations: Array<Location>): void {
     localStorage.setItem("weather-location-list", JSON.stringify(locations));
   },
 
-  requestPermissionToDetectUsersLocation(): Promise<any> {
-    return new Promise((result) => {
-      navigator.geolocation.getCurrentPosition(result);
+  requestUserLocation(): Promise<any> {
+    return new Promise((resolve, reject) => {
+      navigator.geolocation.getCurrentPosition(resolve, reject);
     });
-  },
-
-  async fetchUserLocation() {
-    try {
-      return await axios.get(`https://ipinfo.io/json?token=${process.env.VUE_APP_LOCATION_API_KEY}`)
-        .then((response) => {
-          return response.data
-        })
-        .catch((error) => error)
-    } catch (error) {
-      console.error(error);
-    }
   }
 }

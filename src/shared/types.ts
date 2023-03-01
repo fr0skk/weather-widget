@@ -14,3 +14,8 @@ export interface Location {
   city: string,
   country: string
 }
+
+export interface Coordinates {
+  latitude: string,
+  longitude: string
+}

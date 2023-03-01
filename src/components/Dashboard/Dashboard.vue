@@ -75,6 +75,7 @@ export default Vue.extend({
   methods: {
     ...mapActions([
       "getWeatherByLocation",
+      "getWeatherByCoordinates",
       "getUsersLocations",
       "getWeatherForLocationList"
     ]),
@@ -84,14 +85,15 @@ export default Vue.extend({
     },
 
     async getWeatherFromRequestedUserLocation() {
-      return locationService.requestPermissionToDetectUsersLocation()
-        .then(locationService.fetchUserLocation)
-        .then((location) => {
-          const { city, country } = location;
-          this.getWeatherByLocation({ city, country })
+      return locationService.requestUserLocation()
+        .then((position) => {
+          this.getWeatherByCoordinates({
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude
+          })
             .then(() => {
               this.isDataLoaded = true;
-            });
+            })
         })
     }
   },
